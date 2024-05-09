@@ -53,6 +53,7 @@ const Experience = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
+        
         <p className={styles.sectionSubText}>
           Explore how we innovate
         </p>

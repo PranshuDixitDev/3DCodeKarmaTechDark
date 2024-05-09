@@ -23,6 +23,7 @@ import {
     jobit,
     tripguide,
     threejs,
+    promise
   } from "../assets";
   
   export const navLinks = [
@@ -176,29 +177,46 @@ import {
   const testimonials = [
     {
       testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+        "At CodeKarmaTech, we promise to elevate your business with bespoke software solutions designed to drive growth and efficiency.",
+      name: "The Promise",
+      designation: "CodeKarmaTech Commitment",
+      company: "Your Success",
+      image: promise,
     },
     {
       testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
+        "Discover the power of full-stack development with us. From initial design to final deployment, our focus is on delivering seamless, scalable applications.",
+      name: "The Approach",
+      designation: "Our Methodology",
+      company: "Expert Execution",
+      image: "https://randomuser.me/api/portraits/women/90.jpg",
     },
     {
       testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
+        "Transform your digital landscape with our innovative e-commerce solutions. We tailor every platform to enhance user experience and maximize sales conversions.",
+      name: "The Innovation",
+      designation: "E-commerce Excellence",
+      company: "Market Leadership",
+      image: "https://randomuser.me/api/portraits/men/84.jpg",
     },
+    {
+      testimonial:
+        "Harness the potential of AI and data analysis with CodeKarmaTech. We apply cutting-edge technologies to unlock actionable insights that propel your business forward.",
+      name: "The Future",
+      designation: "AI and Data Mastery",
+      company: "Intelligent Solutions",
+      image: "https://randomuser.me/api/portraits/women/68.jpg",
+    },
+    {
+      testimonial:
+        "Elevate your brand with our design and creative services. Our strategic branding and impactful designs ensure your business stands out in a crowded market.",
+      name: "The Impact",
+      designation: "Design and Creativity Hub",
+      company: "Visual Distinction",
+      image: "https://randomuser.me/api/portraits/men/20.jpg",
+    }
   ];
+  
   
   const projects = [
     {
