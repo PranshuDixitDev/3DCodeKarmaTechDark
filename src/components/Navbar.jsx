@@ -28,7 +28,7 @@ const Navbar = () => {
           <img src={CktLogo} alt="CktLogo" className='w-9 h-9 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex'>CodeKarmaTech
            &nbsp;
-          <span className='sm:block hidden'> | One Stop Solution. </span></p>
+          </p>
         </Link>
         <ul className='list-none hidden sm:flex
           flex-row gap-10'>

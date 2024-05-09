@@ -42,15 +42,15 @@ import {
   
   const services = [
     {
-      title: "Web Developer",
+      title: "Web Development",
       icon: web,
     },
     {
-      title: "React Native Developer",
+      title: "Software Development",
       icon: mobile,
     },
     {
-      title: "Backend Developer",
+      title: "E-commerce Solutions",
       icon: backend,
     },
     {
@@ -116,55 +116,59 @@ import {
   
   const experiences = [
     {
-      title: "React.js Developer",
-      company_name: "Starbucks",
-      icon: starbucks,
-      iconBg: "#383E56",
-      date: "March 2020 - April 2021",
-      points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
-      ],
-    },
-    {
-      title: "React Native Developer",
-      company_name: "Tesla",
-      icon: tesla,
+      title: "Startup Vision",
+      company_name: "CodeKarmaTech",
+      icon: meta, // Replace with your preferred icon for the company vision
       iconBg: "#E6DEDD",
-      date: "Jan 2021 - Feb 2022",
+      date: "2024 - Present",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Developing innovative technology solutions across various domains including E-commerce, Software Development, and AI.",
+        "Emphasizing on modern technologies and user-centered design to deliver top-notch products and services.",
+        "Aiming to collaborate with industry leaders and stakeholders to push the boundaries of digital transformation.",
       ],
     },
     {
-      title: "Web Developer",
-      company_name: "Shopify",
-      icon: shopify,
+      title: "Web Development",
+      company_name: "Frontend, Backend, Full Stack Development", // Description as the company name
+      icon: web, // Ensure this icon matches your assets
       iconBg: "#383E56",
-      date: "Jan 2022 - Jan 2023",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Crafting responsive and scalable web solutions tailored to client needs, utilizing modern frameworks like React.js.",
+        "Engaging in agile development processes to ensure timely delivery of feature-rich applications.",
+        "Ensuring compatibility across all major browsers and devices to provide a seamless user experience.",
       ],
     },
     {
-      title: "Full stack Developer",
-      company_name: "Meta",
-      icon: meta,
+      title: "Software Development",
+      company_name: "Enterprise Software Solutions, SaaS Products, Custom Development", // Description as the company name
+      icon: mobile, // Ensure this icon matches your assets
       iconBg: "#E6DEDD",
-      date: "Jan 2023 - Present",
       points: [
-        "Developing and maintaining web applications using React.js and other related technologies.",
-        "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Participating in code reviews and providing constructive feedback to other developers.",
+        "Building robust software solutions that drive business efficiency and scalability.",
+        "Integrating advanced technological stacks including cloud services and APIs to enhance software capabilities.",
+        "Focusing on security best practices to safeguard data integrity and privacy.",
+      ],
+    },
+    {
+      title: "E-commerce Solutions",
+      company_name: "Custom E-commerce Development, E-commerce Optimization, Mobile Commerce", // Description as the company name
+      icon: backend, // Ensure this icon matches your assets
+      iconBg: "#383E56",
+      points: [
+        "Developing customized e-commerce platforms that enhance shopping experiences and increase sales conversions.",
+        "Optimizing existing e-commerce systems for better performance and higher efficiency.",
+        "Implementing mobile-first design strategies to accommodate the growing trend of mobile commerce.",
+      ],
+    },
+    {
+      title: "Content Creation",
+      company_name: "Digital Media, Marketing Content, Brand Storytelling", // Description as the company name
+      icon: creator, // Ensure this icon matches your assets
+      iconBg: "#E6DEDD",
+      points: [
+        "Creating engaging content that enhances brand visibility and fosters audience engagement.",
+        "Leveraging multimedia tools and platforms to produce high-quality video and graphic content.",
+        "Developing content strategies that align with broader marketing goals and SEO practices.",
       ],
     },
   ];
