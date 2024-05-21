@@ -1,9 +1,10 @@
-import React, { Suspense, useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import CanvasLoader from '../Loader';
+import { debounce } from 'lodash';
 
-const Computers = ( isMobile ) => {
+const Computers = ({ isMobile }) => {
   const computer = useGLTF('./desktop_pc/scene.gltf');
   return (
     <mesh>
@@ -18,57 +19,49 @@ const Computers = ( isMobile ) => {
         shadow-mapSize={1024}
       />
       <primitive 
-      object={computer.scene} 
-      scale={isMobile ? 0.7 : 0.75} 
-      position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.25]} 
-      rotation={[-0.01, -0.2, -0.1]} 
+        object={computer.scene} 
+        scale={isMobile ? 0.7 : 0.75} 
+        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.25]} 
+        rotation={[-0.01, -0.2, -0.1]} 
       /> 
     </mesh>
   );
 }
 
 const ComputersCanvas = () => {
-
   const [isMobile, setIsMobile] = useState(false);
 
+  const handleMediaQueryChange = useCallback(debounce((event) => {
+    setIsMobile(event.matches);
+  }, 100), []);
+
   useEffect(() => {
-    const mediaQuery = window.matchMedia(
-      '(max-width: 500px)');
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
     setIsMobile(mediaQuery.matches);
     
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
-    }
-
-    mediaQuery.addEventListener('change', 
-      handleMediaQueryChange);
-
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
     return () => {
-      mediaQuery.removeEventListener('change',
-       handleMediaQueryChange);
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
     }
-  }, [])
+  }, [handleMediaQueryChange]);
   
-
   return (
     <Canvas
-      frameloop = "demand"
+      frameloop="demand"
       shadows
-      camera={{ position: [20, 3, 5], fov: 25}}
+      camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false}
-        maxPolarAngle={Math.PI / 2} 
-        minPolarAngle={Math.PI / 2}
+          maxPolarAngle={Math.PI / 2} 
+          minPolarAngle={Math.PI / 2}
         />
         <Computers isMobile={isMobile} />
-
       </Suspense>
-
       <Preload all />
     </Canvas>
-  )
+  );
 }
 
 export default ComputersCanvas;

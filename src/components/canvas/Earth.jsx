@@ -6,11 +6,11 @@ import CanvasLoader from '../Loader'
 
 const Earth = () => {
 
-  const earth = useGLTF('./planet/scene.gltf')
+  const { scene } = useGLTF('./planet/scene.gltf');
 
   return (
     <primitive 
-      object={earth.scene}
+      object={scene}
       scale={2.5}
       position-y={0}
       position-x={0}
@@ -42,6 +42,7 @@ const EarthCanvas = () => {
 
         <Earth />
       </Suspense>
+      <Preload all />
 
 
     </Canvas>

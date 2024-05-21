@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion"
 import { styles } from "../styles"
 import { ComputersCanvas } from "./canvas"
@@ -18,7 +19,7 @@ const Hero = () => {
         </div>
         <div>
             <h1 className={`${styles.heroHeadText}
-            text-white`}>Welcome to 
+            text-white`}>Welcome to {" "}
             <span className="text-[#915eff]">
               CodeKarmaTech
             </span></h1>
@@ -57,4 +58,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default memo(Hero);
