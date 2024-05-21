@@ -1,42 +1,42 @@
 import { motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { styles } from '../styles';
 import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
-import axios from 'axios';
 
 const Contact = () => {
   const formRef = useRef();
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
   const [loading, setLoading] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    reset,
+  } = useForm();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm({ ...form, [name]: value });
+    setValue(name, value, { shouldValidate: true });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (data) => {
     setLoading(true);
 
     try {
-      console.log(form)
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(data),
       });
-      
+
       if (response.ok) {
         setLoading(false);
-        setForm({ name: '', email: '', message: '' }); // Update state
-        alert('Email sent, We will reach you Soon');
+        reset(); // Reset the form after successful submission
+        alert('Message sent, we will reach you soon.');
       } else {
         throw new Error('Something went wrong');
       }
@@ -56,51 +56,70 @@ const Contact = () => {
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact</h3>
 
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className='mt-12 flex flex-col gap-8'
-        >
+        <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className='mt-12 flex flex-col gap-8'>
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your name</span>
-            <input 
-              type="text"
-              name="name"
-              value={form.name}
+            <input
+              type='text'
+              name='name'
+              {...register('name', { required: 'Name is required' })}
               onChange={handleChange}
-              placeholder="What is your Name ?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary
-                text-white rounded-lg outlined-none border-none font-medium"
+              placeholder='What is your Name ?'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
+            {errors.name && <span className='text-red-500'>{errors.name.message}</span>}
           </label>
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Email</span>
-            <input 
-              type="email"
-              name="email"
-              value={form.email}
+            <input
+              type='email'
+              name='email'
+              {...register('email', {
+                required: 'Email is required',
+                pattern: {
+                  value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+                  message: 'Invalid email address',
+                },
+              })}
               onChange={handleChange}
-              placeholder="What is your Email ?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary
-                text-white rounded-lg outlined-none border-none font-medium"
+              placeholder='What is your Email ?'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
+            {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
+          </label>
+          <label className='flex flex-col'>
+            <span className='text-white font-medium mb-4'>Your Phone Number</span>
+            <input
+              type='tel'
+              name='phone_number'
+              {...register('phone_number', {
+                required: 'Phone number is required',
+                pattern: {
+                  value: /^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4})$/,
+                  message: 'Invalid phone number',
+                },
+              })}
+              onChange={handleChange}
+              placeholder='Your Phone Number'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+            />
+            {errors.phone_number && <span className='text-red-500'>{errors.phone_number.message}</span>}
           </label>
           <label className='flex flex-col'>
             <span className='text-white font-medium mb-4'>Your Message</span>
-            <textarea 
-              rows="7"
-              name="message"
-              value={form.message}
+            <textarea
+              rows='7'
+              name='message'
+              {...register('message', { required: 'Message is required' })}
               onChange={handleChange}
-              placeholder="Tell us what you need"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary
-                text-white rounded-lg outlined-none border-none font-medium"
+              placeholder='Tell us what you need'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
+            {errors.message && <span className='text-red-500'>{errors.message.message}</span>}
           </label>
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 outline-none w-fit
-             text-white font-bold shadow-md shadow-primary rounded-xl' 
+            className='bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl'
           >
             {loading ? 'Sending...' : 'Send'}
           </button>
@@ -117,4 +136,4 @@ const Contact = () => {
   );
 };
 
-export default SectionWrapper(Contact, "Contact");
+export default SectionWrapper(Contact, 'Contact');
