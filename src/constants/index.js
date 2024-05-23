@@ -19,11 +19,14 @@ import {
     starbucks,
     tesla,
     shopify,
+    django,
     carrent,
     jobit,
     tripguide,
     threejs,
-    promise
+    python,
+    promise,
+    flask
   } from "../assets";
   
   export const navLinks = [
@@ -66,8 +69,16 @@ import {
       icon: html,
     },
     {
-      name: "CSS 3",
-      icon: css,
+      name: "Python",
+      icon: python,
+    },
+    {
+      name: "Django",
+      icon: django,
+    },
+    {
+      name: "Flask",
+      icon: flask,
     },
     {
       name: "JavaScript",
@@ -100,14 +111,6 @@ import {
     {
       name: "Three JS",
       icon: threejs,
-    },
-    {
-      name: "git",
-      icon: git,
-    },
-    {
-      name: "figma",
-      icon: figma,
     },
     {
       name: "docker",

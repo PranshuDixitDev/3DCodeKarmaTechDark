@@ -20,6 +20,9 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
+import python from "./tech/python.png";
+import flask from "./tech/flask.jpg";
+import django from "./tech/django.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -42,7 +45,8 @@ export {
   close,
   css,
   docker,
-  figma,
+  flask,
+  django,
   git,
   html,
   javascript,
@@ -59,6 +63,8 @@ export {
   tesla,
   carrent,
   jobit,
+  figma,
   tripguide,
+  python,
   promise
 };

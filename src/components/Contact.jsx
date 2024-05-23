@@ -53,19 +53,22 @@ const Contact = () => {
         variants={slideIn('left', "tween", 0.2, 1)}
         className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
+        <p className={styles.sectionSubText}>Call us</p>
+        <p className='text-white font-medium mb-4'>+91 7575053969</p>
+        <p className='text-white font-medium mb-4'>+91 7984891664</p>
         <h3 className={styles.sectionHeadText}>Contact</h3>
 
         <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className='mt-12 flex flex-col gap-8'>
           <label className='flex flex-col'>
-            <span className='text-white font-medium mb-4'>Your name</span>
+            <span className='text-white font-medium mb-4'>Your Name</span>
             <input
               type='text'
               name='name'
               {...register('name', { required: 'Name is required' })}
               onChange={handleChange}
               placeholder='What is your Name ?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary
+               text-white rounded-lg outline-none border-none font-medium'
             />
             {errors.name && <span className='text-red-500'>{errors.name.message}</span>}
           </label>
@@ -83,7 +86,8 @@ const Contact = () => {
               })}
               onChange={handleChange}
               placeholder='What is your Email ?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary
+               text-white rounded-lg outline-none border-none font-medium'
             />
             {errors.email && <span className='text-red-500'>{errors.email.message}</span>}
           </label>
@@ -101,7 +105,8 @@ const Contact = () => {
               })}
               onChange={handleChange}
               placeholder='Your Phone Number'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary
+               text-white rounded-lg outline-none border-none font-medium'
             />
             {errors.phone_number && <span className='text-red-500'>{errors.phone_number.message}</span>}
           </label>
@@ -113,13 +118,15 @@ const Contact = () => {
               {...register('message', { required: 'Message is required' })}
               onChange={handleChange}
               placeholder='Tell us what you need'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='bg-tertiary py-4 px-6 placeholder:text-secondary
+               text-white rounded-lg outline-none border-none font-medium'
             />
             {errors.message && <span className='text-red-500'>{errors.message.message}</span>}
           </label>
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 outline-none w-fit text-white font-bold shadow-md shadow-primary rounded-xl'
+            className='bg-tertiary py-3 px-8 outline-none w-fit
+             text-white font-bold shadow-md shadow-primary rounded-xl'
           >
             {loading ? 'Sending...' : 'Send'}
           </button>
@@ -133,7 +140,7 @@ const Contact = () => {
         <EarthCanvas />
       </motion.div>
     </div>
-  );
+  );  
 };
 
 export default SectionWrapper(Contact, 'Contact');
