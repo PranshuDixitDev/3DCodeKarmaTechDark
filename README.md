@@ -1,3 +1,7 @@
+
+![GitHub repo size](https://img.shields.io/github/repo-size/PranshuDixitDev/3DCodeKarmaTechDark)
+![GitHub contributors](https://img.shields.io/github/contributors/PranshuDixitDev/3DCodeKarmaTechDark)
+
 # 3DCodeKarmaTechDark
 
 ## Overview
