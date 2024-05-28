@@ -33,45 +33,42 @@
    ```bash
    git clone https://github.com/PranshuDixitDev/3DCodeKarmaTechDark.git
    cd 3DCodeKarmaTechDark/backend
-Create and activate a virtual environment:
 
-
+2. **Create and activate a virtual environment**:
 python -m venv venv
 source venv/bin/activate  # On macOS/Linux
 .\venv\Scripts\activate   # On Windows
-Install dependencies:
 
-
+3. **Install dependencies**:
 pip install -r requirements.txt
-Set up environment variables:
+
+4. **Set up environment variables**:
 Create a .env file in the backend directory with the following content:
 
-
 DATABASE_URL=postgresql://<username>:<password>@localhost/contact_db
-Run the Flask application:
 
-bash
-Copy code
+5. **Run the Flask application**:
+
 python app.py
-Frontend Setup (React)
-Prerequisites
+
+## Frontend Setup (React)
+### Prerequisites
 Node.js
 npm or yarn
 Installation
-Navigate to the project root and install dependencies:
 
-
+**Navigate to the project root and install dependencies**:
 cd 3DCodeKarmaTechDark
 npm install
 # or
 yarn install
-Run the React application:
 
-
+**Run the React application**:
 npm run dev
 # or
 yarn dev
-API Endpoints
+
+##API Endpoints
 POST /api/contact
 Submit a contact form.
 
