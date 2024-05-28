@@ -2,10 +2,21 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/PranshuDixitDev/3DCodeKarmaTechDark)
 ![GitHub contributors](https://img.shields.io/github/contributors/PranshuDixitDev/3DCodeKarmaTechDark)
 
-# 3DCodeKarmaTechDark
+##  3DCodeKarmaTechDark
 
-## Overview
-3DCodeKarmaTechDark is a project that integrates a React frontend with a Flask backend. The frontend provides a contact form for users to submit their information, which is then processed and stored by the backend using a PostgreSQL database.
+**A full-stack web application with a modern tech stack**
+
+![Python Version](https://img.shields.io/badge/python-3.x-blue) 
+[![React](https://img.shields.io/badge/react-%5E-blue)](https://www.npmjs.com/package/react)
+[![Three.js](https://img.shields.io/badge/three.js-%5E-blue)](https://www.npmjs.com/package/three)
+
+This project integrates a React frontend with a Flask backend for a user-friendly contact form experience. Submitted information is securely processed and stored using a PostgreSQL database.
+
+**Key Features:**
+
+* Interactive React frontend for user input
+* Robust Flask backend API for data processing
+* Secure storage with PostgreSQL database
 
 ## Project Structure
 3DCodeKarmaTechDark/
@@ -28,8 +39,8 @@
 ## Backend Setup (Flask)
 
 ### Prerequisites
-- Python 3.x
-- PostgreSQL
+* Python 3.x
+* PostgreSQL
 
 ### Installation
 
