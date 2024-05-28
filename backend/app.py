@@ -8,13 +8,25 @@ from psycopg2.extras import RealDictCursor
 # Load environment variables
 load_dotenv()
 
+# Check if the DATABASE_URL is loaded correctly
+database_url = os.environ.get('DATABASE_URL')
+if not database_url:
+    raise ValueError("DATABASE_URL environment variable not set")
+else:
+    print(f"Database URL: {database_url}")
+
 app = Flask(__name__)
 CORS(app)  # Enables CORS for all domains; adjust as necessary
 
 # Database connection setup
 def get_db_connection():
-    conn = psycopg2.connect(os.environ['DATABASE_URL'], cursor_factory=RealDictCursor)
-    return conn
+    try:
+        conn = psycopg2.connect(database_url, cursor_factory=RealDictCursor)
+        print("Database connection successful")
+        return conn
+    except Exception as e:
+        print(f"Database connection error: {e}")
+        raise
 
 @app.route('/api/contact', methods=['POST'])
 def handle_contact():
@@ -31,9 +43,10 @@ def handle_contact():
                     (name, email, phone_number, message))
         new_message = cur.fetchone()
         conn.commit()
+        print("New message inserted:", new_message)
         return jsonify(new_message), 201
     except Exception as e:
-        print(e)
+        print(f"Error inserting message: {e}")
         return jsonify({"error": "Internal Server Error"}), 500
     finally:
         cur.close()
