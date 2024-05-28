@@ -14,7 +14,7 @@ if not database_url:
     raise ValueError("DATABASE_URL environment variable not set")
 
 app = Flask(__name__)
-CORS(app)  # Enables CORS for all domains; adjust as necessary
+CORS(app, resources={r"/api/*": {"origins": "https://www.codekarmatech.com"}}) # Enables CORS for all domains; adjust as necessary
 
 # Database connection setup
 def get_db_connection():
