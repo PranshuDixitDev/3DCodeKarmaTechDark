@@ -4,6 +4,11 @@ from dotenv import load_dotenv
 import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 # Load environment variables
 load_dotenv()
@@ -22,6 +27,7 @@ def get_db_connection():
         conn = psycopg2.connect(database_url, cursor_factory=RealDictCursor)
         return conn
     except Exception as e:
+        logger.error(f"Database connection error: {e}")
         raise
 
 @app.route('/api/contact', methods=['POST'])
@@ -41,6 +47,7 @@ def handle_contact():
         conn.commit()
         return jsonify(new_message), 201
     except Exception as e:
+        logger.error(f"Error inserting message: {e}")
         return jsonify({"error": "Internal Server Error"}), 500
     finally:
         cur.close()
