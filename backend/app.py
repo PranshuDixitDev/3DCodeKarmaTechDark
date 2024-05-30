@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
-import psycopg2
-from psycopg2.extras import RealDictCursor
+import firebase_admin
+from firebase_admin import credentials, firestore
 import logging
 
 # Set up logging
@@ -13,22 +13,16 @@ logger = logging.getLogger(__name__)
 # Load environment variables
 load_dotenv()
 
-# Check if the DATABASE_URL is loaded correctly
-database_url = os.environ.get('DATABASE_URL')
-if not database_url:
-    raise ValueError("DATABASE_URL environment variable not set")
+# Initialize Firebase Admin SDK
+cred_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+cred = credentials.Certificate(cred_path)
+firebase_admin.initialize_app(cred, {
+    'projectId': os.getenv('FIREBASE_PROJECT_ID'),
+})
+db = firestore.client()
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "https://www.codekarmatech.com"}}) # Enables CORS for all domains; adjust as necessary
-
-# Database connection setup
-def get_db_connection():
-    try:
-        conn = psycopg2.connect(database_url, cursor_factory=RealDictCursor)
-        return conn
-    except Exception as e:
-        logger.error(f"Database connection error: {e}")
-        raise
+CORS(app, resources={r"/api/*": {"origins": "https://www.codekarmatech.com"}})
 
 @app.route('/api/contact', methods=['POST'])
 def handle_contact():
@@ -38,20 +32,19 @@ def handle_contact():
     phone_number = data['phone_number']
     message = data['message']
 
-    conn = get_db_connection()
-    cur = conn.cursor()
     try:
-        cur.execute('INSERT INTO contact_message (name, email, phone_number, message) VALUES (%s, %s, %s, %s) RETURNING *',
-                    (name, email, phone_number, message))
-        new_message = cur.fetchone()
-        conn.commit()
-        return jsonify(new_message), 201
+        doc_ref = db.collection('contact_messages').add({
+            'name': name,
+            'email': email,
+            'phone_number': phone_number,
+            'message': message
+        })
+        return jsonify({'id': doc_ref[1].id}), 201
     except Exception as e:
         logger.error(f"Error inserting message: {e}")
         return jsonify({"error": "Internal Server Error"}), 500
-    finally:
-        cur.close()
-        conn.close()
+    
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)
