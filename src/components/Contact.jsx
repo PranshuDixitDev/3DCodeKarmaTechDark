@@ -5,6 +5,8 @@ import { styles } from '../styles';
 import { EarthCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
+import useSEO from '../hooks/useSEO';
+
 
 const Contact = () => {
   const formRef = useRef();
@@ -46,6 +48,11 @@ const Contact = () => {
       alert('Something went wrong');
     }
   };
+  useSEO(
+    "Contact Us | CodeKarmaTech",
+    "Get in touch with CodeKarmaTech to discuss your technology projects.",
+    "contact CodeKarmaTech, get in touch, technology projects"
+  );
 
   return (
     <div id='contact' className='xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>

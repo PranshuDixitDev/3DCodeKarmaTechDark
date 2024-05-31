@@ -6,6 +6,7 @@ import { styles } from '../styles'
 import { experiences } from '../constants'
 import { SectionWrapper } from '../hoc'
 import { textVariant } from '../utils/motion'
+import useSEO from '../hooks/useSEO';
 
 const ExperienceCard = ( {experience} ) => (
   <VerticalTimelineElement
@@ -50,7 +51,13 @@ const ExperienceCard = ( {experience} ) => (
 
 
 const Experience = () => {
+  useSEO(
+    "Experience | CodeKarmaTech",
+    "Explore the diverse projects and solutions provided by CodeKarmaTech.",
+    "CodeKarmaTech experience, projects, solutions"
+  );
   return (
+    
     <>
       <motion.div variants={textVariant()}>
         

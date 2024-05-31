@@ -5,6 +5,7 @@ import { styles } from '../styles';
 import {services} from '../constants';
 import { fadeIn, textVariant } from '../utils/motion';
 import { SectionWrapper } from '../hoc';
+import useSEO from '../hooks/useSEO';
 
 const ServiceCard = ({index, title, icon}) => {
   return (
@@ -37,6 +38,11 @@ const ServiceCard = ({index, title, icon}) => {
 }
 
 const About = () => {
+  useSEO(
+    "About Us | CodeKarmaTech",
+    "Learn more about CodeKarmaTech, our mission, and the tailored technology solutions we provide.",
+    "About CodeKarmaTech, technology solutions, mission, digital transformation"
+  );
   return (
     <>
       <motion.div variants={textVariant()}>

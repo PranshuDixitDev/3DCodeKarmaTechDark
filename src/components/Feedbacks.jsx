@@ -4,6 +4,8 @@ import { styles } from '../styles'
 import { SectionWrapper } from '../hoc'
 import { fadeIn, textVariant } from '../utils/motion'
 import { testimonials } from '../constants'
+import useSEO from '../hooks/useSEO';
+
 
 const FeedbackCard = ({
   index,
@@ -41,6 +43,11 @@ const FeedbackCard = ({
 );
 
 const Feedbacks = () => {
+  useSEO(
+    'Our Vision | CodeKarmaTech',
+    'Discover the vision and commitment of CodeKarmaTech towards providing innovative technology solutions.',
+    'vision, mission, CodeKarmaTech, technology solutions, innovation'
+  );
   return (
     <div className='mt-12 bg-black-100 rounded-[20px]'>
       <div className={`${styles.padding} bg-tertiary

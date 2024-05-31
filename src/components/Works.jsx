@@ -5,6 +5,8 @@ import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { projects } from '../constants';
 import { fadeIn, textVariant } from '../utils/motion';
+import useSEO from '../hooks/useSEO';
+
 
 const ProjectCard = ({ index, name, description, tags, image }) => {
   return (
@@ -43,6 +45,11 @@ const ProjectCard = ({ index, name, description, tags, image }) => {
 };
 
 const Works = () => {
+  useSEO(
+    "Our Works | CodeKarmaTech",
+    "Discover the projects and solutions delivered by CodeKarmaTech.",
+    "projects, works, CodeKarmaTech, solutions"
+  );
   return (
     <>
       <motion.div variants={textVariant()}>

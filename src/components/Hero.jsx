@@ -2,9 +2,15 @@ import { memo } from "react";
 import { motion } from "framer-motion"
 import { styles } from "../styles"
 import { ComputersCanvas } from "./canvas"
+import useSEO from '../hooks/useSEO';
 
 
 const Hero = () => {
+  useSEO("Home | CodeKarmaTech", 
+  "Welcome to CodeKarmaTech. Empowering your digital world with bespoke solutions.",
+   "technology, digital solutions, bespoke solutions, CodeKarmaTech"
+  );
+
   return (
     <section className="relative w-full h-screen mx-auto">
       <div className={`${styles.paddingX} absolute
