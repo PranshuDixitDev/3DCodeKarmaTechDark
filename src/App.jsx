@@ -9,10 +9,10 @@ const App = () => {
       <BrowserRouter>
         <Helmet>
           <title>CodeKarmaTech | Innovative Technology Solutions</title>
-          <meta name="description" content="CodeKarmaTech offers tailored technology solutions, including web development, software development, e-commerce solutions, and more." />
+          <meta name="description" content="CodeKarmaTech offers tailored technology solutions, including web development, software development, e-commerce solutions, and more.Best in India,Gujarat,Ahmedabad" />
           <meta name="keywords" content="technology, web development, software development, e-commerce, AI, digital transformation, global contracts, USA, Canada, UK, India, Ahmedabad, Gujarat" />
           <meta property="og:title" content="CodeKarmaTech | Innovative Technology Solutions" />
-          <meta property="og:description" content="CodeKarmaTech offers tailored technology solutions, including web development, software development, e-commerce solutions, and more." />
+          <meta property="og:description" content="CodeKarmaTech offers tailored technology solutions, including web development, software development, e-commerce solutions, and more.Best in India,Gujarat,Ahmedabad" />
           <meta property="og:url" content="https://www.codekarmatech.com" />
           <meta property="og:type" content="website" />
         </Helmet>
